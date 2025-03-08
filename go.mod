@@ -26,4 +26,5 @@ require (
 	google.golang.org/protobuf v1.27.1 // indirect
 )
 
+// bytedance只基于这个版本做了代码生成改造
 replace github.com/apache/thrift => github.com/apache/thrift v0.13.0
