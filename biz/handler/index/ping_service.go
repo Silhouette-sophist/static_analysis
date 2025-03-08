@@ -4,7 +4,7 @@ package index
 
 import (
 	"context"
-	"github.com/bytedance/gopkg/util/logger"
+	"github.com/cloudwego/hertz/pkg/common/hlog"
 	"github.sophist.static_analysis/biz/handler"
 	"github.sophist.static_analysis/biz/service"
 
@@ -25,7 +25,7 @@ func PingServer(ctx context.Context, c *app.RequestContext) {
 	}
 	result, err := service.Ping(ctx, req)
 	if err != nil {
-		logger.CtxWarnf(ctx, "Ping err Z%v", err)
+		hlog.CtxWarnf(ctx, "Ping err Z%v", err)
 		c.String(consts.StatusBadRequest, err.Error())
 		return
 	}
