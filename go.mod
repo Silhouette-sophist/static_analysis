@@ -2,10 +2,13 @@ module github.sophist.static_analysis
 
 go 1.22.9
 
-require github.com/cloudwego/hertz v0.9.6
+require (
+	github.com/apache/thrift v0.21.0
+	github.com/bytedance/gopkg v0.1.0
+	github.com/cloudwego/hertz v0.9.6
+)
 
 require (
-	github.com/bytedance/gopkg v0.1.0 // indirect
 	github.com/bytedance/sonic v1.12.7 // indirect
 	github.com/bytedance/sonic/loader v0.2.2 // indirect
 	github.com/cloudwego/base64x v0.1.4 // indirect
@@ -22,3 +25,5 @@ require (
 	golang.org/x/sys v0.24.0 // indirect
 	google.golang.org/protobuf v1.27.1 // indirect
 )
+
+replace github.com/apache/thrift => github.com/apache/thrift v0.13.0
