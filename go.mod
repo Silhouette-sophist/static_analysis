@@ -5,6 +5,7 @@ go 1.22.9
 require (
 	github.com/apache/thrift v0.21.0
 	github.com/cloudwego/hertz v0.9.6
+	github.com/google/uuid v1.6.0
 )
 
 require (

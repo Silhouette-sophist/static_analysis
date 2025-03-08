@@ -10,6 +10,8 @@ import (
 func main() {
 	h := server.Default(server.WithTracer(&monitor.ReqTracer))
 
+	h.Use(monitor.LogIDMiddleware())
+
 	register(h)
 	h.Spin()
 }
