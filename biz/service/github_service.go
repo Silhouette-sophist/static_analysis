@@ -19,7 +19,7 @@ const (
 	AuthorizationToken   = "Bearer %s"
 	GitHubApiVersion     = "X-GitHub-Api-Version"
 	GitHubApiVersionInfo = "2022-11-28"
-	GitHubToken          = "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"
+	GitHubToken          = "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"
 )
 
 var gitHubClient = http.Client{
@@ -29,6 +29,11 @@ var gitHubClient = http.Client{
 type GithubRepoParam struct {
 	Owner string
 	Repo  string
+}
+
+type GithubPullRequestParam struct {
+	GithubRepoParam
+	PullRequestId int32
 }
 
 func QueryUserRepos(ctx context.Context, param GithubRepoParam) (any, error) {
@@ -41,6 +46,21 @@ func QueryUserRepos(ctx context.Context, param GithubRepoParam) (any, error) {
 	result, err := sendRequestInternal[any](ctx, request)
 	if err != nil {
 		hlog.CtxWarnf(ctx, "QueryUserRepos sendRequestInternal err %v", err)
+		return nil, err
+	}
+	return result, nil
+}
+
+func QueryPullRequestFiles(ctx context.Context, param GithubPullRequestParam) (any, error) {
+	url := fmt.Sprintf("%s/repos/%s/%s/pulls/%d/files", GitHubApiBaseUrl, param.Owner, param.Repo, param.PullRequestId)
+	request, err := http.NewRequest(http.MethodGet, url, nil)
+	if err != nil {
+		hlog.CtxWarnf(ctx, "QueryPullRequestFiles request err %v", err)
+		return nil, err
+	}
+	result, err := sendRequestInternal[any](ctx, request)
+	if err != nil {
+		hlog.CtxWarnf(ctx, "QueryPullRequestFiles sendRequestInternal err %v", err)
 		return nil, err
 	}
 	return result, nil
