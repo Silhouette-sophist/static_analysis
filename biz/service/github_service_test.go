@@ -16,3 +16,18 @@ func TestQueryUserRepos(t *testing.T) {
 	}
 	t.Logf("QueryUserRepos success %v", repos)
 }
+
+func TestQueryPullRequestFiles(t *testing.T) {
+	files, err := QueryPullRequestFiles(context.Background(), GithubPullRequestParam{
+		GithubRepoParam{
+			Owner: GitHubOwner,
+			Repo:  "static_analysis",
+		},
+		3,
+	})
+	if err != nil {
+		t.Errorf("QueryPullRequestFiles err %v", err)
+		return
+	}
+	t.Logf("QueryPullRequestFiles success %v", files)
+}
