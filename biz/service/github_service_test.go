@@ -23,7 +23,7 @@ func TestQueryPullRequestFiles(t *testing.T) {
 			Owner: GitHubOwner,
 			Repo:  "static_analysis",
 		},
-		3,
+		4,
 	})
 	if err != nil {
 		t.Errorf("QueryPullRequestFiles err %v", err)
