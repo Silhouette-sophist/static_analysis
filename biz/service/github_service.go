@@ -19,7 +19,7 @@ const (
 	AuthorizationToken   = "Bearer %s"
 	GitHubApiVersion     = "X-GitHub-Api-Version"
 	GitHubApiVersionInfo = "2022-11-28"
-	GitHubToken          = "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"
+	GitHubToken          = "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"
 )
 
 var gitHubClient = http.Client{
