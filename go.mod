@@ -1,11 +1,14 @@
 module github.sophist.static_analysis
 
-go 1.22.9
+go 1.23.0
+
+toolchain go1.23.7
 
 require (
 	github.com/apache/thrift v0.21.0
 	github.com/cloudwego/hertz v0.9.6
 	github.com/google/uuid v1.6.0
+	golang.org/x/tools v0.31.0
 )
 
 require (
@@ -23,7 +26,7 @@ require (
 	github.com/tidwall/pretty v1.2.0 // indirect
 	github.com/twitchyliquid64/golang-asm v0.15.1 // indirect
 	golang.org/x/arch v0.0.0-20210923205945-b76863e36670 // indirect
-	golang.org/x/sys v0.24.0 // indirect
+	golang.org/x/sys v0.31.0 // indirect
 	google.golang.org/protobuf v1.27.1 // indirect
 )
 
